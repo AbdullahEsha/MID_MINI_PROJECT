@@ -36,7 +36,18 @@
         </tr>
         <tr>
             <td colspan="2" align="right">
-                <a href="home.php" align="center">GO Home</a>
+                <?php
+                if($_COOKIE['userType']=="Manager"){
+                ?>
+                <a href="AdminPage.php" align="center">GO Home</a>
+                <?php
+                }
+                else{
+                ?>
+                <a href="UserPage.php" align="center">GO Home</a>
+                <?php
+                }
+                ?>
             </td>
         </tr>
 	</table>		

@@ -1,27 +1,7 @@
-<?php
-if(isset($_POST['submit']))
-{
-    if($_COOKIE['pass']==$_POST['conpass'])
-    {
-        if($_POST['newpass']==$_POST['conpass'])
-        {
-            setcookie('pass', $_POST['newpass'], time()+3600, '/');
-            header('location: login.php');
-        }
-        else
-        {
-            echo "Doesn't match";
-        }
-    }
-    else
-    {
-        echo "please recheck your password";
-    }
-}
-?>
+
 <fieldset>
     <legend><b>CHANGE PASSWORD</b></legend>
-    <form>
+    <form action="changepassword_check.php" method="post">
         <table>
             <tr>
                 <td><font size="3">Current Password</font></td>

@@ -12,10 +12,10 @@
 
 			<tr><td colspan="4"><hr/></td></tr>
 			<tr>
-				<td>User Name</td>
+				<td>User ID</td>
 				<td>:</td>
 				<td>
-					<input name="userName" type="text">
+					<input name="userId" type="text">
 				</td>
 				<td></td>
 			</tr>		
@@ -35,7 +35,7 @@
 			<tr>
 				<td>Password</td>
 				<td>:</td>
-				<td><input name="pass" type="password"></td>
+				<td><input name="password" type="password"></td>
 				<td></td>
 			</tr>		
 			<tr><td colspan="4"><hr/></td></tr>
@@ -56,6 +56,7 @@
 				</td>
 				<td></td>
 			</tr>
+			<tr><td colspan="4"><hr/></td></tr>
 		</table>
 		<hr/>
 		<input type="submit" value="Submit" name="submit">

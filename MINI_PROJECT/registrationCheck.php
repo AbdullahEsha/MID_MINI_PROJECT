@@ -1,51 +1,33 @@
 <?php
-	session_start();
+    
 
-	if(isset($_POST['submit'])){
+        $name     = $_POST['name'];
+	    $uid    = $_POST['userId'];
+	    $userType = $_POST['userType'];
+	    $email    = $_POST['email'];
+	    $password = $_POST['password'];
+    
+        if(isset($_POST['submit'])){
+        $conn = mysqli_connect('localhost', 'root', '', 'mini_project');
 
-		$name = $_POST['name'];
-		$userId = $_POST['userId'];
-		$email = $_POST['email'];
-		$password = $_POST['pass'];
-		$confirmPassword = $_POST['confirmPassword'];
-		$userType = $_POST['userType'];
-		
-		if(empty($userId) || empty($userType) || empty($password) || empty($email) || empty($name) || empty($confirmPassword))
-		{
-			echo "please submit all information";
-		}
-		else 
-		{
-			if($password != $confirmPassword)
-			{
-				echo "your password and confirm password didn't match!";
-			}
-			else
-			{
-			$user = ['userType'=> $userType,'userId'=> $userId,'pass'=> $password];
+    
+        $query = "INSERT INTO userinfo (Name, UserId, Email, Password, UserType) VALUES ('$name', '$uid', '$email', '$password', '$userType')";
+       
 
-			$_SESSION['userType']   = $userType;
-			$_SESSION['userId']     = $userId;
-			$_SESSION['pass'] 	    = $password;
-			$_SESSION['user'] 		= $user;
+        if(empty($name) || empty( $uid ) || empty($email ) || empty( $password) || empty($userType))
+        {
+            echo "Empty Value !!";
+        }
+        else
+        {
+            $result = mysqli_query($conn, $query);
+            header('location: login.php');
+        }
 
-			setcookie('userId', $userId, time()+3600, '/');
-			setcookie('email', $email, time()+3600, '/');
-			setcookie('pass', $password, time()+3600, '/');
-			setcookie('name', $name, time()+3600, '/');
-			setcookie('userType', $userType, time()+3600, '/');
-
-			echo "Cookie set.";
-
-			$file = fopen('user.txt', 'a');
-			fwrite($file, $userId.'|'.$password.'|'.$email.'|'.$name.'|'.$userType."/r/n");
-			fclose($file);
-
-			header('location: login.php');
-			}
-		}
-
-	}else{
-		echo "Cookie not set.";
-}
+       
+    }
+    else
+    {
+    	echo "sorry!!";
+    }
 ?>
