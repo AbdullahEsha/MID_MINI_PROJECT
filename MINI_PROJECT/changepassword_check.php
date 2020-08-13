@@ -6,8 +6,8 @@
         $cpassword =  $_POST['conpass'];
 
         if(isset($_POST['submit'])){
-        $conn = mysqli_connect('localhost', 'root', '', 'mini_project');
-        $query = "UPDATE userinfo SET Password ='$cpassword' WHERE Password ='$currpassword'";
+        $conn = mysqli_connect('localhost', 'root', '', 'webtech');
+        $query = "UPDATE miniproject SET password ='$cpassword' WHERE password ='$currpassword'";
 
         if(empty($currpassword) || empty( $newpassword ) || empty($cpassword ) )
         {

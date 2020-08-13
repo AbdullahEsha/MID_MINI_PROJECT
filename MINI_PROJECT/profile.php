@@ -37,12 +37,12 @@
         <tr>
             <td colspan="2" align="right">
                 <?php
-                if($_COOKIE['userType']=="Manager"){
+                if($_COOKIE['userType']=="Admin"){
                 ?>
                 <a href="AdminPage.php" align="center">GO Home</a>
                 <?php
                 }
-                else{
+                else if ($_COOKIE['userType']=="User"){
                 ?>
                 <a href="UserPage.php" align="center">GO Home</a>
                 <?php

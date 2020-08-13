@@ -3,7 +3,7 @@
     $password = $_POST['password'];
 
 if(isset($_POST['submit'])){
-    $conn = mysqli_connect('localhost', 'root', '', 'mini_project');
+    $conn = mysqli_connect('localhost', 'root', '', 'webtech');
 
         if(empty($uid) || empty($password)){
             echo "Invalid";
@@ -11,16 +11,16 @@ if(isset($_POST['submit'])){
         else{
             
 
-            $query = "SELECT * FROM userinfo WHERE UserId = '$uid' AND Password = '$password'";
+            $query = "SELECT * FROM miniproject WHERE id = '$uid' AND password = '$password'";
             $result = mysqli_query($conn, $query);
 
-            while( $row = mysqli_fetch_assoc($result) ){
+            while($row = mysqli_fetch_assoc($result) ){
                 
-                $Cname     = $row['Name'];
-                $Cemail    = $row['Email'];
-                $Cuserid   = $row['UserId'];
-                $Cpassword = $row['Password'];
-                $CuserType = $row['UserType'];
+                $Cname     = $row['name'];
+                $Cemail    = $row['email'];
+                $Cuserid   = $row['id'];
+                $Cpassword = $row['password'];
+                $CuserType = $row['userType'];
 
                 if(($uid == $Cuserid) && ($password == $Cpassword)){
                     if($CuserType == 'Admin'){

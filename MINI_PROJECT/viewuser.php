@@ -1,6 +1,6 @@
 <?php
-  $conn = mysqli_connect('localhost', 'root', '', 'mini_project');
-  $result = mysqli_query($conn, 'select * from userinfo');
+  $conn = mysqli_connect('localhost', 'root', '', 'webtech');
+  $result = mysqli_query($conn, 'select * from miniproject');
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,17 +15,17 @@
 					<td align="center" colspan="4"><h3>Users</h3></td>
 				</tr>
 				<tr>
-					<td width="120px">ID</td>
-					<td width="80px">NAME</td>
-					<td width="180px">EMAIL</td>
+					<td>ID</td>
+					<td>NAME</td>
+					<td>EMAIL</td>
 					<td>USER TYPE</td>
 				</tr>
 				<?php  while($data = mysqli_fetch_assoc($result)){ ?>
                 <tr>
-                    <td><?php echo $data['UserId'] ?></td>
-                    <td><?php echo $data['Name'] ?></td>
-                    <td><?php echo $data['Email'] ?></td>
-                    <td><?php echo $data['UserType'] ?></td>
+                    <td><?php echo $data['id'] ?></td>
+                    <td><?php echo $data['name'] ?></td>
+                    <td><?php echo $data['email'] ?></td>
+                    <td><?php echo $data['userType'] ?></td>
                 </tr>
                 <?php } ?>
 				
